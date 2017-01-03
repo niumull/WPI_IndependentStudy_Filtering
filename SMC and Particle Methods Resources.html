@@ -1,0 +1,385 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!-- saved from url=(0052)http://www.stats.ox.ac.uk/~doucet/smc_resources.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+
+
+
+
+
+
+
+  <title>SMC and Particle Methods Resources</title></head>
+<body bgcolor="#ffffff" link="#0000ff" text="#000000" vlink="#660099">
+<h3 style="text-align: center;"><big>Sequential Monte Carlo Methods &amp; Particle Filters Resources</big></h3><div style="text-align: center;">by <a href="http://www.stats.ox.ac.uk/~doucet/index.html">Arnaud Doucet</a></div><h4><big><big><span style="font-style: italic;">Objectives</span></big></big></h4>
+This&nbsp;ugly webpage (vintage look 1995) presents a list of references, codes and videolectures available for SMC<span style="font-weight: bold;">/</span>particle filters.<br>It is by no means exhaustive and obviously biased towards my <a href="http://www.stats.ox.ac.uk/~doucet/journalsbysubject.html">work</a> and the work of my close colleagues.<br>A complementary site for SMC and Particle filters resources by my colleague <a href="http://www.math.u-bordeaux1.fr/~delmoral/research.html">Pierre Del Moral</a> can be found <a href="http://www.math.u-bordeaux1.fr/~delmoral/simulinks.html">here</a>.<br><br>I keep on adding stuff from time to time, although not as often as I should. <br><br><span style="font-style: italic; font-weight: bold;"><big><big>References<br><br></big></big></span><small><small><span style="font-weight: bold;"><big><big>Textbooks<br><br>* </big></big></span><big><big>G. Kitagawa &amp; W. Gersch, <span style="font-style: italic;">Smoothness Priors Analysis of Time Series</span>, Lecture Notes in Statistics, Springer, 1996.<br>-
+The first book I am aware of discussing particle filters, applications
+to spectral analysis, changepoints etc and it is also a nice
+introduction to state-space models.<br></big></big></small></small><br>* P. P. Del Moral &amp; L. Miclo, <span style="font-style: italic;">Branching and Interacting
+Particle Systems Approximations of Feynman-Kac Formulae with
+Applications to Non-linear Filtering</span>, Seminaire de Probabilites,
+Lecture Notes in Mathematics, Springer-Verlag Berlin, vol. 1729, pp.
+1-145, 2000. <a href="http://www.math.u-bordeaux1.fr/~delmoral/seminaire.ps">Ps</a><br>-
+The first review of theoretical results behind SMC, the books by Del
+Moral (2004, 2013 see below) are much more complete (but these lecture notes
+are free, although the books are also free on some websites). <br><br>* A.D., N. De Freitas &amp; N.J. Gordon (editors), <span style="font-style: italic;">SMC Methods in Practice</span>, Springer-Verlag, 2001.<br>- Large collection of chapters on the subject, a bit outdated now&nbsp;but good to start with.<br><br>* P. Del Moral, <span style="font-style: italic;">Feynman-Kac Formulae: Genealogical and Interacting Particle Approximation</span>s, Springer-Verlag, 2004.<br>-
+Everything you want to know about the theory behind SMC, also includes
+nice non-standard applications. The notation can appear a little bit
+overwhelming at the beginning but anyone who has worked on the subject
+learn&nbsp;to appreciate how powerful they are eventually.<br><br>* P. Del Moral, <span style="font-style: italic;">Mean Field Simulation for Monte Carlo Integration</span>, Chapman &amp; Hall - CRC, 2013.<br>- A significantly updated and expanded version of his previous 2004 monograph.<br><br>* O. Cappe, E. Moulines &amp; T. Ryden, <span style="font-style: italic;">Inference in Hidden Markov Models</span>, Springer-Verlag, 2005. <span style="font-weight: bold;"><span style="font-weight: bold;"><br>-</span></span> A comprehensive treatment of hidden Markov models which includes a few chapters on SMC methods. <br><br>* S. S<span id="cit-name-read"><span id="cit-name-display" class="cit-in-place-nohover">ä</span></span>rkk<span id="cit-name-read"><span id="cit-name-display" class="cit-in-place-nohover">ä, <span style="font-style: italic;">Bayesian Filtering and Smoothing</span>, CUP, 2013. See dedicated <a href="http://www.cambridge.org/us/academic/subjects/statistics-probability/applied-probability-and-stochastic-networks/bayesian-filtering-and-smoothing">site</a> and <a href="http://becs.aalto.fi/~ssarkka/">online</a> <br>- An introduction to advanced nonlinear filtering methods including SMC supported by Matlab examples.<br></span></span><span style="font-weight: bold;"><span style="font-weight: bold;"></span></span><span style="font-style: italic; font-weight: bold;"><br></span>
+<span style="font-weight: bold;">Basic Introduction to SMC for
+state-space models</span><br>
+<br>
+* A.D., N. De Freitas and N.J. Gordon, An introduction to
+Sequential Monte Carlo Methods, in<span style="font-style: italic;"> SMC in Practice</span>, 2001 <a href="http://www.stats.ox.ac.uk/~doucet/doucet_defreitas_gordon_smcbookintro.pdf">Pdf</a><br>- Simple introduction to basic SMC methods for state-space models.<br>
+<br>
+<span style="font-weight: bold;">Early papers</span><br><br>* L.
+Stewart, P. McCarty, The use of Bayesian Belief Networks to fuse
+continuous and discrete information for target recognition and discrete
+information for target recognition, tracking, and situation assessment,
+in <span style="font-style: italic;">Proc. SPIE</span> Signal Processing, Sensor Fusion and Target Recognition,, vol. 1699, pp. 177-185, 1992. <a href="http://www.dtic.mil/cgi-bin/GetTRDoc?AD=ADA319213#page=171">Pdf</a> (see pages 171-176 in acrobat).<br>-
+First paper I am aware of introducing what is now known as the
+bootstrap filter, this paper&nbsp;has only been cited 8 times since
+1992! (at least I cited it 3 times).<br><br>* N.J. Gordon, D. Salmond and A.F.M. Smith, Novel approach to nonlinear/non-Gaussian Bayesian state estimation,<span style="font-style: italic;"> IEE Proc. F</span>, 1993 <a href="http://www.cse.buffalo.edu/~peter/refs/DataAssimilation/ParticleFilters/Gordon_1993.pdf">Pdf</a> <br>- The seminal paper introducing SMC for filtering. <br><br>* G. Kitagawa, Monte Carlo filter and smoother for non-Gaussian nonlinear state-space models, <span style="font-style: italic;">JCGS</span>,
+1996 <br>- Journal version of A Monte Carlo Filtering and Smoothing Method
+for Non-Gaussian Nonlinear State Space Models published in 1993 in
+the <span style="font-style: italic;">Proceedings of the 2nd U.S.-Japan Joint Seminar on Statistical Time Series Analysis</span>,
+pp. 110-131. This 1993 paper introduced particle filters at the same time as Gordon,
+Salmond &amp; Smith&nbsp;but it has been unfairly
+forgotten. First introduction of stratified resampling.<br><br>* M. Hurzeler and H. Kunsch, Monte Carlo approximations for general state-space models,<span style="font-style: italic;"> JCGS</span>, 1998.<br>-
+Propose to address the filtering and smoothing problems using Monte
+Carlo: not quite SMC as implemented nowadays as rejection
+sampling is used to sample from a mixture of distributions.<br><br>* <span class="breadcrumbs">J.S. Liu and R. Chen, Sequential Monte
+Carlo methods for dynamic systems, <span style="font-style: italic;">JASA</span></span><span class="breadcrumbs"></span><span class="breadcrumbs">, 1998 <a href="http://www.fas.harvard.edu/~junliu/TechRept/98folder/liu&amp;chen98_2.pdf">Pdf</a></span> <br>-
+This paper shows that SMC goes far beyond state-space models and are
+applicable to any sequence of distributions of increasing dimension.<br><br>* M.K. Pitt and N. Shephard, Filtering via Simulation: Auxiliary
+Particle Filter,<span style="font-style: italic;"> JASA</span>, 1999 <a href="http://www.nuff.ox.ac.uk/users/shephard/papers/filterSim.pdf">Pdf </a><br>- This paper introduces the popular auxiliary particle filter and perfect adaptation.<br><br>
+* J. Carpenter, P. Clifford and P. Fearnhead, <span class="m"><span class="l">An Improved Particle Filter for Non-linear Problems, <span style="font-style: italic;">IEE Proc. F</span>, 1999&nbsp;</span></span><a href="http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.6.168&amp;rep=rep1&amp;type=pdf">Pdf</a> &nbsp;<br>- This paper presents an improved version of auxiliary particle filters and stratified resampling. <br><br>
+* A.D., S.J. Godsill and C. Andrieu, On Sequential Monte Carlo
+sampling methods for Bayesian filtering, <span style="font-style: italic;">Stat. Comp.</span>, 2000 <a href="http://www.stats.ox.ac.uk/~doucet/doucet_godsill_andrieu_sequentialmontecarloforbayesfiltering.pdf">Pdf<span class="m"><span class="l"></span></span><span class="m"><span class="l"></span></span></a> &nbsp;<br>- This paper presents the "optimal" importance distribution, ways to approximate it,&nbsp;smoothing and Rao-Blackwellization.<br><br><span style="font-weight: bold;">Tutorials papers<br><br>* </span>H. Kunsch,&nbsp;State space and hidden Markov models, Chapter 3 of Complex Stochastic
+  Systems, O. E. Barndorff-Nielsen, D. R. Cox and C. Klüppelberg, eds.,
+  CRC Press, 109--173, 2001.<br>-
+Present a nice survey of HMM, state-space and Monte Carlo
+approximations as of 2001. Also discusses the connections with the
+reference measure approach favoured by Elliott et al.<br><br>*
+&nbsp;S. Arulampalam, S. Maskell, N.J. Gordon &amp; T. Clapp, A
+Tutorial on Particle Filters for Online Nonlinear/Non-Gaussian Bayesian
+Tracking, <span style="font-style: italic;">IEEE Trans. Sig. Proc.</span>, 2002 <a href="http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.117.1144&amp;rep=rep1&amp;type=pdf">Pdf</a> <br>-
+Popular tutorial but a bit outdated now, e.g. does not include
+resample-move, smoothing or Rao-Blackwellisation. Could be a good start
+to understand SMC in a state-space model context though.<br><br>* O. Cappe, S.J. Godsill &amp; E. Moulines, An Overview of Existing Methods and Recent Advances in SMC, <span style="font-style: italic;">Proc. IEEE</span>, 2007<br>- This paper also discusses resample move, some smoothing techniques and Rao-Blackwellisation.<br><br>* D. Creal, A Survey of Sequential Monte Carlo Methods for Economics and Finance, <span style="font-style: italic;">Econometric Reviews</span>, to appear <a href="http://faculty.chicagobooth.edu/drew.creal/research/papers/creal2009survey.pdf">Pdf</a><br>- Tutorial introducing SMC and its applications in an economics and finance context.<br><br>* P. Del Moral, F. Patras, &amp; S. Rubenthaler, A Mean Field Theory of Nonlinear Filtering,  in the <span style="font-style: italic;">Oxford Handbook of Nonlinear Filtering</span>, Oxford University Press, 2011 <a href="http://hal.inria.fr/docs/00/23/92/49/PDF/RR-6437.pdf">Pdf</a> <br>- A more theoretically oriented tutorial that presents some of the main results in the area.<br><br>* P. Del Moral &amp; A.D., Particle Methods: An Introduction with Applications,<span style="font-style: italic;"> ESAIM Proceedings</span>, 2014 <a href="http://www.esaim-proc.org/articles/proc/pdf/2014/01/proc144401.pdf">Pdf&nbsp;</a><br>-
+Discuss particle methods in a general (non-necessarily filtering
+context) and presents the proofs of simple theoretical results.<br><br>* &nbsp;A.D. &amp; A.M. Johansen - A Tutorial on Particle Filtering and Smoothing: 15 Years Later, in the <span style="font-style: italic;">Oxford Handbook of Nonlinear Filtering</span>, Oxford University Press, 2011 <a href="http://www.stats.ox.ac.uk/~doucet/doucet_johansen_tutorialPF2011.pdf">Pdf</a> &nbsp;<br>-
+This paper shows that most SMC algorithms including auxiliary particle filters,
+resample-move, block sampling etc. can be reinterpreted within a simple unified framework.<br><br>* <span style="font-weight: bold;">&nbsp;</span>N.
+Kantas, A.D., S.S. Singh, J.M. Maciejowski and N. Chopin,&nbsp;On
+Particle Methods for Parameter Estimation in State-Space Models. <span style="font-style: italic;">Statistical Science</span><span style="font-style: italic;"></span>,&nbsp;2015. <a href="http://www.stats.ox.ac.uk/~doucet/kantas_doucet_singh_maciejowski_tutorialparameterestimation.pdf">Pdf</a><br>-
+Tutorial detailing the pros and cons of particle methods for static
+parameter estimation.&nbsp;Upated version of&nbsp;An overview of
+sequential Monte Carlo methods for parameter estimation in general
+state-space models, in <span style="font-style: italic;">Proceedings IFAC System Identification</span> (SySid)
+Meeting, 2009.<br><br style="font-weight: bold;"><span style="font-weight: bold;">Fighting degeneracy: Using MCMC steps &amp; look-ahead strategies</span><br><span style="font-weight: bold;"></span><br>A
+well-known problem with SMC approximations is that they suffer from the
+degeneracy problem, i.e. as time increases the approximations of the
+"earlier" marginal distributions collapse. You can try to mitigate (but
+not eliminate) this problem using either some MCMC moves as suggested
+by Gilks &amp; Berzuini or by using lookahead strategies of which
+my favourite is block sampling.<br><br>*&nbsp;
+W. Gilks &amp; C. Berzuini, Following a moving target: Monte Carlo
+inference for dynamic Bayesian models, <span style="font-style: italic;">JRSS B</span>,
+2001<br>- This paper proposes to move the particles using MCMC moves with the
+appropriate invariant distribution so as to introduce diversity among
+particles.<br><br>* A.D., M. Briers &amp; S. Senecal,&nbsp;Efficient
+Block Sampling Strategies for SMC, <span style="font-style: italic;">JCGS</span>, 2006
+<a href="http://www.stats.ox.ac.uk/~doucet/doucet_briers_senecal_blocksamplingSMC.pdf">Pdf</a>&nbsp;<br>- This pape shows how it is possible to potentially drastically reduce
+the number of resampling steps, hence the degeneracy, by sampling
+blocks of state variables. Can be thought of as a block version of
+auxiliary particle filters.<br><br>* M. Lin, R. Chen &amp; J.S. Liu, Lookahead Strategies for SMC, <span style="font-style: italic;">Statistical Science</span> 2012 <a href="http://stat.rutgers.edu/home/rongchen/publications/delay_ss9_7.pdf">Pdf</a><br>- This paper reviews various lookahead strategies to mitigate degeneracy.<br><br><span style="font-weight: bold;">Reducing the Variance<br><br>-</span><span style="font-weight: bold;"> using Rao-Blackwellization</span><br><span style="font-weight: bold;"><br></span>Whenever
+you can compute an integral analytically, then do it and avoid Monte
+Carlo. An obvious principle one can put in practice for a wide range of
+state-space models of interest.<br><br>*&nbsp;C. Andrieu &amp; A.D., Particle Filtering for Partially Observed
+Gaussian State Space
+Models, <span style="font-style: italic;">JRSS B</span>, 2002. <a href="http://www.stats.ox.ac.uk/~doucet/andrieu_doucet_partiallyobserved.ps">Pdf</a>
+<br>- This paper shows how the Kalman filter can be use to compute the prior of a
+latent process, particularly useful for dynamic probit/tobit models.<br><br>*&nbsp;R. Chen &amp; J. Liu, Mixture Kalman filters, <span style="font-style: italic;">JRSS B</span>, 2000. <b><a href="http://www.people.fas.harvard.edu/~junliu/TechRept/00folder/chen&amp;liu00.pdf"><span style="font-weight: normal;">Pdf</span></a> <br>-</b>
+This paper shows that for conditionally linear Gausian models which includes
+switching state-space models, it is possible to devise a particle
+filter which is a mixture of Kalman filters.<br><b><br>*&nbsp;</b>A.D., S.J. Godsill &amp; C. Andrieu, On Sequential Monte Carlo
+sampling methods for Bayesian filtering, (section IV) <span style="font-style: italic;">Stat. Comp.</span>, 2000
+<a href="http://www.stats.ox.ac.uk/~doucet/doucet_godsill_andrieu_sequentialmontecarloforbayesfiltering.pdf">Pdf<span style="font-weight: bold;"></span></a> <br>- Section IV of this paper presented independently the same material as Chen &amp; Liu (2000).<br><br>*
+K.P. Murphy, A.D., N. De Freitas &amp; S.
+Russell,&nbsp;Rao-Blackwellised Particle Filtering for Dynamic Bayesian
+Networks, in Proc. Uncertainty in Artificial Intelligence, 2000. <a href="http://people.cs.ubc.ca/~murphyk/Papers/rbpf_uai00.pdf">Pdf</a>
+&nbsp;<br>- This paper uses Rao-Blackwellization techniques to do efficient inference in high
+dimensional dynamic Bayes nets.<br><br>* P. Fearnhead, P. &amp; P. Clifford (2003). On-line inference for hidden Markov models via particle filters. <span style="font-style: italic;">JRSS B</span>, 2003. <br>-
+This paper shows that for discrete-valued latent processes, standard particle
+filters are inefficient and proposes an alternative approach that
+bypasses the sampling step. Demonstrate its use for switching
+state-space models.<br><br>* T. Schon, F. Gustafsson &amp; P. Nordlund. Marginalized particle filters for mixed linear/nonlinear state-space models. <span style="font-style: italic;">IEEE Trans. Sig. Proc.</span>, 2005. <a href="http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.4.2903&amp;rep=rep1&amp;type=pdf">Pdf</a><br>- This paper proposes some generalizations of the Rao-Blackwellized particle filters.<br><br><span style="font-weight: bold;">-using Quasi Monte Carlo<br><br>*</span> M. Gerber and N. Chopin, Sequential Quasi Monte Carlo, <span style="font-style: italic;">JRSS B</span> (with discussion), 2015.<span style="font-weight: bold;"> </span><a href="http://arxiv.org/pdf/1402.4039">Pdf</a><span style="font-weight: bold;"><br>- </span>This
+paper shows that you can use QMC within SMC to reduce the variance of
+your estimates (at least for low-dimensional state-space). This is by
+no mean trivial and <br>the paper achieves this by the clever use of a Hilbert space-filling curve. <br><br style="font-weight: bold;"><span style="font-weight: bold;">Parallel implementation<br><br>* </span>A. Lee et al., On the utility of graphics cards to perform massively parallel implementation of advanced Monte Carlo, <span style="font-style: italic;">JCGS</span>, 2010. <a href="http://www.oxford-man.ox.ac.uk/gpuss/">Website with CUDA code</a>&nbsp; <a href="http://people.maths.ox.ac.uk/gilesm/files/JCGS.pdf">Pdf</a><br>- This paper discusses the use of GPU for the implementation of SMC methods.<br><br>* A. Lee &amp; N.Whitely, Forest resampling for distributed SMC, <span style="font-style: italic;">Statistical Analysis and Data Mining</span>, 2015 <a href="http://arxiv.org/abs/1406.6010">Pdf</a><br>-&nbsp;SMC
+are not so easy to parallelize as the resampling operation is a
+bottleneck. This paper provides practical and principled ways to
+perform resampling on a distributed computing architecture.<br><br><span style="font-weight: bold;">SMC Methods on Trees, Partially Ordered Sets, Combinatorial Spaces</span><br><br>* L. Wang, A. Bouchard-Cote &amp; A.D., Bayesian phylogenetic inference using a combinatorial SMC, <span style="font-style: italic;">JASA</span>, 2015 <a href="http://www.stats.ox.ac.uk/~doucet/wang_bouchardcote_doucet_BayesianphylogeneticscombinatorialSMC_JASA2015.pdf">Pdf</a><br>-
+Assume you want to do SMC not on state-space models but say for
+non-clock trees or more generally on some combinatorial space. We
+present a method to deal with this here relying on the existence of a
+partially ordered set structure (poset).<br><br><span style="font-weight: bold;">&nbsp;SMC Smoothing<br></span><br>In
+the context of state-space models, it is often of interest to perform
+smoothing. Standard SMC approximations do provide an estimate of
+&nbsp;the joint smoothing distributions but it is poor because of the
+degeneracy problem aforementioned. Specific smoothing procedures have
+been proposed to address this.<br><br>* A.D., S.J. Godsill &amp; C. Andrieu, On Sequential Monte Carlo
+sampling methods for Bayesian filtering, <span style="font-style: italic;">Stat. Comp.</span>, 2000 <a href="http://www.stats.ox.ac.uk/~doucet/doucet_godsill_andrieu_sequentialmontecarloforbayesfiltering.pdf">Pdf<span class="m"><span class="l"></span></span><span class="m"><span class="l"></span></span></a> &nbsp;<br>-
+This paper describes an SMC implementation of forward
+filtering-backward smoothing to compute marginal smoothing
+distributions.<br><br>* &nbsp;G. Kitagawa &amp; S. Sato,&nbsp;Monte Carlo Smoothing and Self-organising State-Space Model. In <span style="font-style: italic;">SMC in Practice</span>,
+2001. <br>- This paper proposes to approximate fixed-interval marginal smoothing
+distributions by fixed-lag marginal smoothing distributions to reduce
+drastically the degeneracy problem.<br><br>* S.J. Godsill, A.D. &amp; M. West,&nbsp;Monte Carlo Smoothing for Nonlinear Time Series, <span style="font-style: italic;">JASA</span>,
+2004 <a href="http://www.cco.caltech.edu/~jimbeck/summerlectures/references/Particle%20smoother.pdf">Pdf </a><br>- This paper describes SMC implementation of the forward
+filtering-backward sampling procedure to obtain samples approximately
+from the joint smoothing distribution, cost O(NT) per path for N particles and T data.<br><br>* P. Del Moral, A.D. &amp; S.S. Singh, Forward Smoothing using SMC, Technical report
+Cambridge University TR 638, Sept. 2009, revised 2010 <a href="http://arxiv.org/PS_cache/arxiv/pdf/1012/1012.5390v1.pdf">Pdf</a>.
+<br>- This paper describes an SMC implementation of the forward filtering-backward
+smoothing to compute expectations of additive functionals that bypasses
+entirely the backward pass, presents theoretical results and applied it
+to on-line parameter estimation using on-line gradient and on-line
+EM.&nbsp;<br><br>* M. Briers, A.D. &amp; S. Maskell,&nbsp;Smoothing Algorithms for State-space Models, <span style="font-style: italic;">Ann. Instit. Stat. Math.</span>,
+2010 <a href="http://www.stats.ox.ac.uk/~doucet/briers_doucet_maskell_smoothingstatespacemodels.pdf">Pdf</a> <br>-
+This paper presents a generalized version of the two-filter smoothing
+formula which can be readily implemented using SMC methods to compute
+marginal smoothing distributions and sample approximately from the
+joint. Direct implementation has complexity O(N^2.T) and proposed
+rejection sampling method yields O(N.T) (in compact spaces...) to
+compute marginals, O(T) to sample approximately from the joint.<br><br>* P. Fearnhead, D. Wyncoll &amp; J. Tawn, A Sequential Smoothing Algorithm with Linear Computational Cost, <span style="font-style: italic;">Biometrika</span>,
+2010 <a href="http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.164.9708&amp;rep=rep1&amp;type=pdf">Pdf</a><br>- This paper describes an importance sampling procedure to reduce computational
+complexity of SMC implementation of direct implementation of
+generalized two-filter formula to O(N.T) to compute marginals.<br><br>*
+R. Douc, A. Garivier, E. Moulines &amp; J. Olsson, On the Forward
+Filtering Backward Smoothing Particle Approximations of the Smoothing
+Distribution, <span style="font-style: italic;">Ann. Applied Proba</span>,
+to appear <a href="http://arxiv.org/PS_cache/arxiv/pdf/0904/0904.0316v1.pdf">Pdf</a><br>- This paper describes a rejection sampling method to implement forward filtering
+backward sampling, cost O(T) per path and presents various theoretical
+results.<br><br><span class="breadcrumbs"><span style="font-weight: bold;">SMC for on-line Bayesian&nbsp;static parameter estimation in state-space models </span></span><br><br><span class="breadcrumbs"><span style="font-weight: bold;"></span>
+It is tempting to do on-line Bayesian static parameter estimation in
+state-space models using SMC and MCMC moves. Unfortunately, all these
+methods suffer from the path degeneracy problems so should be used
+cautiously. They are definitely unreliable for big datasets and/or vague priors.<br><br></span><span class="breadcrumbs">
+* P. Fearnhead, MCMC, sufficient statistics and particle filters, <span style="font-style: italic;">JCGS</span>,
+2002 <a href="http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.24.4619&amp;rep=rep1&amp;type=pdf">Pdf</a><br>- &nbsp;This is a journal paper version of a chapter of the D.Phil of&nbsp;</span><span class="breadcrumbs">
+Fearnhead (1998) where it is proposed for the first time to use MCMC
+moves on static parameters to mitigate the degeneracy problem. The
+author clearly acknowledges that this does not entirely solve the
+problem; see the discussion.<br><br></span><span class="breadcrumbs">
+* C. Andrieu, N. De Freitas and A.D., Sequential MCMC for Bayesian
+Model Selection, <span style="font-style: italic;">Proc. IEEE Workshop HOS</span>, 1999 <a href="http://www.stats.ox.ac.uk/~doucet/andrieudefreitasdoucet_sequentialMCMCforbayesianmodelselection1999.pdf">Pdf</a><br>-
+This paper presents an SMC algorithm for on-line Bayesian parameter
+estimation for autoregressive parameters with unknown order using</span><span class="breadcrumbs"> reversible jump MCMC moves</span><span class="breadcrumbs">.
+It is explicitly mentioned at the end of the paper and demonstrated
+experimentally that such methods are bound to suffer from the
+degeneracy problem.<br><br>
+* G. Storvik, </span>Particle filters for state-space models with the
+presence of unknown static parameters, <span style="font-style: italic;">IEEE Trans. Signal Processing</span>,
+2002 <a href="http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.28.3341&amp;rep=rep1&amp;type=pdf">Pdf</a><br>- This paper proposes a more sophisticated version of Fearnhead's proposal.<br><span style="font-style: italic; font-weight: bold;"></span><span class="breadcrumbs"><span style="font-weight: bold;"><br></span>* H.F. Lopes &amp; R. S. Tsay, Particle Filters and Bayesian Inference in Financial Econometrics, <span style="font-style: italic;">J. Forecasting</span>, 2010.<span style="text-decoration: underline;"></span><a href="http://faculty.chicagobooth.edu/hedibert.lopes/research/pdf/lopes-tsay-2011.pdf"></a><br>-
+This paper reviews at length the so-called particle learning, i.e. auxiliary
+particle filter with perfect adaption and MCMC moves for static
+parameters,&nbsp;for on-line Bayesian parameter estimation with
+detailed simulation results illustrating the degeneracy problem.</span><span class="breadcrumbs"></span><br><span class="breadcrumbs"><br>A pragmatic approach consists of adding an artificial dynamic noise on the static parameter:<br><br>* J. Liu &amp; M. West, Combined parameter and state estimation in simulation-based filtering, in <span style="font-style: italic;">SMC in Practice</span>, 2001. <a href="http://www.stats.ox.ac.uk/~doucet/www.gatsby.ucl.ac.uk/~byron/nlds/liu00.pdf%3F?">Pdf</a><br>- Introduce artificial dynamic noise on the static parameter and mitigate the variance inflation using a shrinkage procedure.<br></span><span style="font-weight: bold;"></span><span style="font-weight: bold;"></span><br><span class="breadcrumbs">
+<span style="font-weight: bold;">SMC for on-line and batch maximum likelihood inference of static
+parameter estimation in state-space models <br></span></span><br>As
+all the SMC procedures for on-line Bayesian inference suffer from the
+degeneracy problem, me and my colleagues have tried for many years to
+develop alternative methods which bypass this problem. If you accept to
+be non-Bayesian about the parameter, this is possible.&nbsp;An earlier
+approach we considered consists of
+using a pseudo-likelihood, this yields an estimate&nbsp;which is not
+statistically efficient but you do not even need particle filters in
+this case. Eventually, we have come up with a
+forward-only implementation of the forward filtering-backward smoothing
+procedure: it is
+the key to&nbsp;obtain stable algorithms to perform on-line Maximum
+Likelihood (ML) static parameter
+estimation in state-space models. For
+off-line approaches, all the smoothing approaches described previously
+can be and have been used. <br><span class="breadcrumbs"><span style="font-weight: bold;"><br></span></span>* C. Andrieu, A.D. &amp; V.B. Tadic, Online EM for parameter
+estimation in nonlinear-non Gaussian state-space models,<span style="font-style: italic;"> Proc. IEEE
+CDC</span>, 2005 <a href="http://www.stats.ox.ac.uk/~doucet/andrieu_doucet_tadic_onlineparameterestimationCDC2005.pdf">Pdf</a> <br>-
+This paper describe a pseudo-likelihood approach originally proposed by Ryden for
+finite HMM, establish theoretical results, application to on-line
+parameter estimation where pseudo-likelihood is maximized using the
+on-line EM. <br><br>*
+J. Olsson, O. Cappe, R. Douc &amp; E. Moulines, SMC Smoothing with
+Application to Parameter Estimation in Nonlinear State-Space Models, <span style="font-style: italic;">Bernoulli</span>,
+2008 <a href="http://arxiv.org/PS_cache/math/pdf/0609/0609514v2.pdf">Pdf</a><br>- This paper quantifies the bias introduced by the fixed-lag approximation of
+Kitagawa &amp; Sato, presents numerical results and uses it for parameter
+estimation using off-line&nbsp;EM.<br><br>* P. Del Moral, A.D. &amp; S.S. Singh, Forward Smoothing using SMC, Technical report
+Cambridge University TR 638, Sept. 2009, revised 2010 <a href="http://arxiv.org/PS_cache/arxiv/pdf/1012/1012.5390v1.pdf">Pdf</a>.
+<br>- This paper describes an SMC implementation of the forward filtering-backward
+smoothing to compute expectations of additive functionals that bypasses
+entirely the backward pass, presents theoretical results and applied it
+to on-line parameter estimation using on-line gradient. <br><br>* S. Malik &amp; M.K. Pitt, Particle filters for continous likelihood evaluation and maximisation. <span style="font-style: italic;">J. Econometrics</span>,
+2011 (slighly revised version of M.K. Pitt, Smoother particle filters
+for likelihood evaluation and maximisation, Technical report, 2002).<br>-
+Even if you fixed the random seed in your particle filter, the
+resulting simulated likelihood function is discontinuous and can vary
+significantly for a moderate number of particles as the resampling step
+is a discontinuous operation. Evaluating the MLE by maximizing this
+function is thus difficult. For one-dimensional state, M.K. Pitt
+proposed a simple and efficient solution to this problem in 2002, just
+reorder the particles on the real line and perform a piecewise linear
+approximation of the resulting empirical CDF. You obtain a continuous simulated likelihood function.<br><br>*&nbsp;G. Poyiadjis, A.D. &amp; S.S. Singh,&nbsp;Particle Approximations of the Score and
+Observed Information Matrix in State-Space Models with Application to
+Parameter Estimation, <span style="font-style: italic;">Biometrika</span>,&nbsp;2011 <a href="http://www.stats.ox.ac.uk/~doucet/poyiadjis_doucet_singh_particlescoreparameterestimation.pdf">Pdf</a> <br>-
+This paper describes an original approach to compute the score vector and OIM on-line that
+is more robust than the standard approach, it can be interpreted as a
+particular case of the forward smoothing&nbsp;and we show how it can be used for on-line ML parameter
+estimation.&nbsp; <br><br>*
+J. Olsson &amp; J. Westerborn, Efficient particle-based online
+smoothing in general hidden Markov models: the PaRIS algorithm, <span style="font-style: italic;">Bernoulli</span>, 2016 to appear. <a href="http://arxiv.org/abs/1412.7550">Pdf</a><br>-
+This paper shows that you can bypass the O(N^2) computational
+complexity at each time step of the forward-only procedures in (Del
+Moral, D. &amp; Singh, 2009; Poyadjis, D. &amp; Singh, 2011) but using
+a further Monte Carlo approximation based on rejection sampling. <br><br>* E.L. Ionides, A. Bhadra, Y. Atchade &amp; A. King, Iterated Filtering, <span style="font-style: italic;">Annals of Statistics</span>, 2011. <a href="http://www.stat.lsa.umich.edu/~ionides/pubs/ionides11-aos.pdf">Pdf</a><br>-
+This paper shows how can one can compute an approximation of the score vector using
+a perturbed state-space model and apply it to batch ML parameter
+estimation. It is especially useful in scenarios where one does not
+have access to the expression of the transition kernel of the latent
+process.<br><br>*
+E.L. Ionides, D. Nguyen, Y. Atchade, S. Stoev and A.A. King, Inference
+for dynamic and latent variable models via iterated, perturbed Bayes
+maps, <span style="font-style: italic;">PNAS</span>, 2015. <br>- An elegant iterative algorithm to perform batch ML iteration. <br>
+<br>
+<span class="breadcrumbs"><span style="font-weight: bold;">SMC for batch Bayesian&nbsp;static parameter estimation in state-space models <br><br></span>Obviously
+for batch joint Bayesian state and parameter estimation, you can use
+MCMC methods. However it can be difficult to design efficient
+algorithms. In the context where one can only simulate the latent
+process but does not have access to the transition prior, standard MCMC
+just fail. SMC can come to the rescue in these scenarios.<br></span><br>* Lee, D.S. &amp; Chia, N.K.K, A particle algorithm for sequential Bayesian parameter estimation and model selection, <span style="font-style: italic;">IEEE Trans. Signal Proc.</span>, 2002. <br>-
+This paper proposes to use particle filters mixed with MCMC steps. MCMC steps are
+used to rejuvenate the whole state sequence and parameter so this is
+not an on-line algorithm as the complexity increases over time but can
+be used as an alternative to standard MCMC.<br><br>*&nbsp;C. Andrieu, A.D. &amp; R. Holenstein,&nbsp;Particle Markov chain Monte Carlo for Efficient Numerical Simulation, in <span style="font-style: italic;">Monte Carlo and Quasi Monte Carlo Methods 2008</span>, Lecture Notes in Statistics, Springer, pp. 45-60, 2009. <a href="http://www.stats.ox.ac.uk/~doucet/andrieu_doucet_holenstein_pmcmc_mcqmc.pdf">Pdf</a> &nbsp;and Particle Markov chain Monte Carlo methods (with discussion), <span style="font-style: italic;">JRSS B</span>, 2010 <a href="http://www.stats.ox.ac.uk/~doucet/andrieu_doucet_holenstein_PMCMC.pdf">Pdf</a><br>-
+This paper shows that it is possible to build high-dimensional proposal
+distributions for MCMC using SMC, it can be used to develop algorithms
+to sample from the joint posterior distribution of states
+and parameters. NB: At the 101 level, you can establish the validity of
+the particle marginal Metropolis-Hastings on the parameter component from
+the unbiasedness of the marginal likelihood estimator. As pointed out
+in Section 5.1. of the paper, this is somewhat restrictive and
+misleading. In my opinion,
+the nicest part of the paper is the conditional SMC/particle Gibbs
+sampler bit which does not&nbsp;follow at all from the unbiasedness of
+the marginal likelihood estimator.<br><br>* N. Whiteley, C. Andrieu &amp; A.D., Efficient
+Bayesian Inference for
+Switching State-Space Models using Discrete Particle Markov Chain
+Monte Carlo methods, Technical report no. 1004 Department of Mathematics Bristol
+University 2010 <a href="http://arxiv.org/PS_cache/arxiv/pdf/1011/1011.2437v1.pdf">Pdf</a><br>-
+This paper shows how the discrete particle filter of Fearnhead and
+Clifford (2003)
+can be used within MCMC, also presents an original backward sampling
+procedure in a non-Markovian framework which is an extension of the
+procedure
+originally proposed by Whiteley in the discussion of the particle MCMC
+paper.<br>
+<span style="font-weight: bold;"></span><br>* N. Chopin, P. Jacob &amp;
+O. Papaspiliopoulos. SMC^2: A SMC algorithm with particle MCMC
+updates. <span style="font-style: italic;">JRSS</span> B, 2013 <a href="http://arxiv.org/abs/1101.1528">Pdf</a><br>-
+This paper substitutes to the MCMC used in the particle MCMC paper an SMC
+algorithm, you obtain a hierarchical SMC algorithm. This yields a
+powerful algorithm for sequential inference;&nbsp;this is not a truly on-line
+algorithm as
+the complexity increases over time.<br><br>* A. Fulop &amp; J. Li, Robust and Efficient Learning: A Marginalized Resample-Move Approach, <span style="font-style: italic;">J. Econometrics</span>, 2013. <a href="http://papers.ssrn.com/sol3/papers.cfm?abstract_id=1724203">Pdf</a><br>- The authors proposed independently the same algorithm as&nbsp;SMC^2.<br><span class="breadcrumbs"><br>* F. Lindsten, M.I. Jordan and T.B. </span><span class="breadcrumbs">Schon, Particle Gibbs with Ancestor Sampling, <span style="font-style: italic;">JMLR</span>, 2014. <a href="http://dl.acm.org/citation.cfm?id=2670320">Pdf</a>&nbsp;<a href="http://arxiv.org/abs/1210.6911"></a><br>- Proposes an interesting variant of the particle Gibbs sampler where ancestors are resampled in a forward pass.&nbsp; <br><br>* A.D., M.K. Pitt, G. Deligiannidis and R. Kohn, </span>Efficient
+Implementation of Markov chain Monte Carlo when Using an Unbiased
+Likelihood, <span style="font-style: italic;">Biometrika</span>, 2015.<span style="font-style: italic;"></span> <a href="http://www.stats.ox.ac.uk/~doucet/DoucetPittDeligiannidisKohn_efficientimplementationMCMCunbiasedlikelihoodestimator.pdf">Pdf</a>&nbsp;<br>- When implementing the particle Metropolis-Hastings
+algorithm, and generally speaking any pseudo-marginal algorithm,&nbsp;how
+many particles one should use to evaluate the likelihood so as to
+minimise the asymptotic variance of the resulting MCMC estimates for a
+fixed computational budget? This paper provides useful guidelines.<br><span class="breadcrumbs"><br>* N. Chopin &amp; S.S. Singh. On the particle Gibbs sampler, <span style="font-style: italic;">Bernoulli</span>, 2015 <a href="http://arxiv.org/abs/1304.1887">Pdf</a><br>-
+Establishes uniform ergodicity of the particle Gibbs sampler through a
+coupling argument and discusses some algorithmic variants.<br><br>* S.S. Singh, F. Lindsten &amp; E. Moulines, Blocking strategies and stability of particle Gibbs samplers, Preprint 2015 <a href="http://arxiv.org/abs/1509.08362">Pdf</a><br>-
+Assume you want to sample the posterior&nbsp;distribution of a very
+long hidden state sequence. This paper shows that you can use a
+blocking version of particle Gibbs such that </span>the cost
+per-iteration only grows linearly
+with the number of latent states while the mixing rate of the sampler
+does not deteriorate. Additionally the algorithm is easily
+parallelizable.<br><span class="breadcrumbs"><br></span>* N. Whiteley and A. Lee, Twisted particle filters, <span style="font-style: italic;">Annals of Statistics</span>, 2014 <a href="http://arxiv.org/abs/1210.0220">Pdf</a>&nbsp;<br>-
+Introduces a new class of particle filters which can provide
+significantly lower variance estimates of the normalizing constant at
+the cost of a simple algorithmic modification. It relies on a change of measure on the particle system.&nbsp;<br><span style="font-weight: bold;"></span><span class="breadcrumbs"><span style="font-weight: bold;"><br>SMC as an alternative/complement to MCMC<br><br></span>The
+idea of mixing SMC and MCMC to sample from a sequence of distributions
+all defined on the same space has appeared independently in various
+papers.<br><span style="font-weight: bold;"><br></span>* G.E. Crooks, </span><span class="ptitle">Nonequilibrium Measurements of Free Energy Differences for Microscopically Reversible Markovian Systems,</span><span class="gec"></span> <i> J. Stat. Phys.,&nbsp;</i>1998. <a href="http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.63.4984&amp;rep=rep1&amp;type=pdf">Pdf</a><br>-
+This paper presents a discrete-time version of the celebrated Jarzynski's equality in
+statistical physics (and slight generalization of it) showing that a
+sequence of non-homogeneous MCMC kernels "moving" towards a target can
+be&nbsp;reweighted using a
+clever importance sampling trick based on some reverse Markov kernels to obtain an unbiased estimator of
+the normalizing constant and an approximation of the target of
+interest.&nbsp; Not quite SMC as no resampling is&nbsp;used.<br><br><span class="breadcrumbs">*</span> W. Gilks &amp; C. Berzuini, Following a Moving Target: Monte Carlo Inference for Dynamic Bayesian Models, <span style="font-style: italic;">JRSS B</span>,
+2001<br>-
+This paper proposes to move the particles using MCMC moves with the
+appropriate invariant distribution so as to introduce diversity among
+particles. It was discussed in the framework of state-space models with
+static parameters. If you don't include any state, this gives you a
+method for sampling the sequence of posteriors of the parameter. It
+also introduces independently the same construction as Crooks based
+on&nbsp;a sequence of reverse Markov kernels (this is hidden in the
+proof; see Lemma 1 and Corollary 1).<br><span class="breadcrumbs"></span><span class="breadcrumbs"><br>* R.M. Neal, Annealed Importance Sampling, <span style="font-style: italic;">Stat. Comp.</span>, 2001. <a href="http://www.bioss.ac.uk/students/alexm/RadfordAnnealedImportanceSampling.pdf">Pdf</a><br>- This paper introduced independently&nbsp;</span>a discrete-time version of the celebrated Jarzynski's equality in
+statistical physics based on a sequence of reverse Markov kernels and&nbsp;<span class="breadcrumbs">discusses
+carefully some applications to Bayesian inference with a sequence of annealed target distributions.</span>
+Not quite SMC as no resampling is used. In this context, increasing the
+number of annealed auxiliary target distributions can prevent standard
+weights degeneracy.<br><span class="breadcrumbs"></span><br>* N. Chopin, <span>A Sequential Particle Filter Method for Static Models, <span style="font-style: italic;">Biometrika</span>, 2002.<br>-
+This paper details a careful application of the resample move algorithm for
+sampling from the sequence of posterior distributions of a static
+parameter.<br></span><br>* P. Del Moral, A.D. &amp; A. Jasra, Sequential Monte Carlo Samplers, <span style="font-style: italic;">JRSS B</span>, 2006. <a href="http://www.stats.ox.ac.uk/~doucet/delmoral_doucet_jasra_sequentialmontecarlosamplersJRSSB.pdf">Pdf</a><br>- This paper discusses a framework&nbsp;generalizing annealed importance sampling and
+resample-move, discusses the potential benefits of resampling when the
+sequence of targets evolve quickly and scenarios where previous methods are not applicable.<br><br style="font-weight: bold;"><span style="font-weight: bold;">Recent Convergence Results of Interest<br><br></span>Besides
+Del Moral's books (2004, 2013), here are a few papers of interest
+essentially weakening the assumptions in the aforementioned books.<br><br>* N. Whiteley, Stability properties of particle filters, <span style="font-style: italic;">Annals Applied Proba</span>, 2013. <a href="http://www.maths.bris.ac.uk/~manpw/AAP%20909.pdf">Pdf</a><br>- Weak(er) assumptions ensuring uniform convergence of particle filters, requires bounded observations.<br><br>* R. Douc, E. Moulines &amp; J. Olsson, Long-term stability of SMC methods under verifiable conditions, <span style="font-style: italic;">Annals Applied Proba</span>, to appear. <a href="http://www.maths.lth.se/matstat/staff/jimmy/Publications/TR2012-1.pdf">Pdf</a><br>- Other weak(er) assumptions ensuring uniform convergence of particle filters.<br><br>*
+J. Berard, P. Del Moral &amp; A.D., A log-normal central limit theorem
+for particle approximations of normalizing constants,&nbsp;<span style="font-style: italic;">Electronic J. Proba</span>, 2014 <a href="http://www.stats.ox.ac.uk/~doucet/berard_delmoral_doucet_lognormalCLT_EJPfinalversion.pdf">Pdf</a>.<br>-
+Standard CLT for particle methods assume the time horizon T is fixed
+and the number N of particles goes to infinity. However, in
+practice people usually scale&nbsp;N linearly with T when estimating
+normalizing constants/marginal likelihoods. This paper establishes a CLT for the
+resulting estimate as T, equivalently N in this case, goes to infinity.
+As conjectured by Mike Pitt, the normalizing constant estimate divided
+by true normalizing constant converges towards a log-normal
+distribution.<br><br>What about SMC in high dimensional spaces? <br><br>* R. Van Handel, Can particle filters beat the curse of dimensionality? &nbsp;<a href="http://arxiv.org/abs/1301.6585">Pdf</a><br>- Answer is yes if you are ready to accept some bias but current assumptions to ensure this are extremely strong, or no bias<br>but the rate of convergence is slowler than the usual Monte Carlo rate.<br><br>* A. Beskos, D. Crisan &amp; A. Jasra, On the stability of SMC in high dimensions. <span style="font-style: italic;">Annals Applied Proba</span>. <a href="http://arxiv.org/abs/1103.3965">Pdf</a><br>-
+Look at stability of SMC samplers in high dimension for i.i.d targets.
+Things are not going exponentially bad but only quadratically with the dimension if your MCMC
+kernels mix well.<br><span style="font-weight: bold;"></span><span style="font-weight: bold;"></span><span class="breadcrumbs"><span style="font-weight: bold;"><br><big><big>Slides and Videolectures</big></big><br></span></span><big><big><span style="font-weight: bold;"></span></big></big><big><span style="font-weight: bold;"></span></big><br>* <a href="http://perso.telecom-paristech.fr/~cappe/talks/epfl-17dec04-handout.pdf">Slides</a> by O. Cappe for EPFL workshop 2004.<br><br>* <a href="http://videolectures.net/mlss07_doucet_smcm/">Video of my lectures</a> at Machine Learning Summer School 2007.<br><br>* <a href="http://videolectures.net/nips09_doucet_freitas_smc/">Video lectures: Tutorial at NIPS 2009</a> by A.D. &amp; N. De Freitas <br><br>* <a href="http://www.math.u-bordeaux1.fr/~delmoral/i-mcmc-mlss.pdf">Slides</a> of P. Del Moral. for&nbsp;Machine Learning Sumeer School 2008.<br><br>* <a href="http://users.isy.liu.se/rt/schon/course_CIDSkth_le.html">Slides</a> of T. Schon, Linkoping 2012.<br>
+<span style="font-weight: bold;"></span><br>* <a href="http://www.facebook.com/video/video.php?v=10150672637780721">Video of my talk</a> at French Statistical Meeting on particle MCMC (in french).<br><br>* Slides of my 8 hours
+course Statistical Mathematics summer school 2011 (to be posted). This is a much
+updated version of a course I gave in <a href="http://www.stats.ox.ac.uk/~doucet/samsi_course.html">SAMSI</a> in Fall 2008.<br><br>* <a href="http://yosinski.com/mlss12/MLSS-2012-Doucet-Sequential-Monte-Carlo-Methods/">Slides</a> of my course at Machine Learning Summer School 2012<br><br>* <a href="http://www.maths.lancs.ac.uk/~fearnhea/GTP/">Slides</a> of P. Fearnhead for a graduate course in computational statistics 2012<br><br><big><big><span style="font-weight: bold;">Code<br></span><small><small><br>*&nbsp;</small></small></big></big><a href="http://libbi.org/">LibBi</a>
+by L. Murray (Oxford): powerful C++ template library + parser &amp; compiler in Perl to perform particle
+filters, PMCMC and SMC^2 at lightspeed, works for multi-core CPU and
+GPU too.<br><br>* <a href="http://www.robots.ox.ac.uk/~brooks/probabilistic-c/">Probabilistic C</a> by B. Paiges &amp; F. Wood (Oxford): compilationtarget for probabilistic programming languages, includes SMC and PMCMC.<br><br>* <a href="http://www.robots.ox.ac.uk/~fwood/anglican/">Anglican</a> by F. Wood et al. (Oxford): open
+source, compiled probabilistic programming language, includes PMCMC.<br><big><big><small><small><br>*&nbsp;Team <a href="http://alea.bordeaux.inria.fr/">INRIA Alea</a>: <a href="http://alea.bordeaux.inria.fr/biips/doku.php">Biips Bayesian Inference with Interacting Particle Systems</a>. Great BUGS/JAGS type software for SMC methods.<br><br></small></small><small><small>* D. Creal: <a href="http://faculty.chicagobooth.edu/drew.creal/publishedMaterial/MatlabCodeSurvey.zip">Matlab code</a> and <a href="http://faculty.chicagobooth.edu/drew.creal/publishedMaterial/OxCodeSurvey.zip">Ox code</a> for all the examples in his recent tutorial <a href="http://faculty.chicagobooth.edu/drew.creal/research/papers/creal2009survey.pdf">paper</a> (see above)<br><br>* N. De Freitas: <a href="http://www.cs.ubc.ca/~nando/software.php">Matlab code</a> for Rao-Blackwellized particle filters and Unscented particle filter.<br><br>* P. Fearnhead: <a href="http://www.maths.lancs.ac.uk/~fearnhea/GTP/">R code</a> for particle filters and particle Gibbs sampler.<br><br>* P. Jacob: Python packages for&nbsp;</small></small></big></big><a href="http://code.google.com/p/py-pmmh/"><big><big><small><small>particle Marginal Metropolis-Hastings</small></small></big></big></a><big><big><small><small> and <a href="http://code.google.com/p/py-smc2/">SMC^2</a>.<br><br>* A. Jasra: C++ code for <a href="http://www.stats.ox.ac.uk/~doucet/smcsamplers.html">SMC samplers</a> examples.<br><br>* A.M. Johansen: C++ Sequential Monte Carlo template&nbsp;</small></small></big></big><big><big><small><small><a href="http://www2.warwick.ac.uk/fac/sci/statistics/staff/academic-research/johansen/smctc/">link</a></small></small></big></big><big><big><small><small> and an R interface to this package by D. Eddelbuettel <a href="http://dirk.eddelbuettel.com/code/rcpp.smc.html">link</a></small></small></big></big><big><big><small><small><a href="http://www2.warwick.ac.uk/fac/sci/statistics/staff/academic-research/johansen/smctc/"></a></small></small></big></big><br><big><big><small><small><br>* A. King, E.L. Ionides et al.: <a href="http://cran.r-project.org/web/packages/pomp/index.html">R package</a>
+Statistical inference for partially observed models, includes bootstrap
+filter, iterated filtering and particle Marginal Metropolis-Hastings.<br><br>* A. Lee et al.: GPU code for particle filters and SMC samplers <a href="http://www.oxford-man.ox.ac.uk/gpuss/">link</a> and <a href="http://people.maths.ox.ac.uk/gilesm/files/JCGS.pdf">paper</a>.<br><br>* F. Lindsten: Matlab code for particle</small></small></big></big><big><big><small><small> Marginal Metropolis-Hastings and particle Gibbs with ancestor sampling <a href="http://users.isy.liu.se/en/rt/lindsten/code.html">link</a><a href="http://faculty.chicagobooth.edu/hedibert.lopes/research/JForecasting-PF.html"></a><br></small></small></big></big><big><big><small><small><br>* D. Rasmussen: <a href="http://koellelab.weebly.com/ploscompbio_2011.html">Matlab code</a> for </small></small></big></big><big><big><small><small>particle Marginal Metropolis-Hastings implemented in this 2011 PLOS Comp. Biology <a href="http://koellelab.weebly.com/ploscompbio_2011.html">paper.</a><br><br>* T. Schon: <a href="http://www.control.isy.liu.se/~schon/ressoftware.html">Matlab code</a> for Rao-Blackwellised particle filter and&nbsp;EM for parameter estimation.<br></small></small></big></big><big><big><small><small><br>* D. Wilkinson: <a href="http://www.staff.ncl.ac.uk/d.j.wilkinson/smfsb/2e/">R code</a> corresponding to the second edition of his cool <a href="http://www.staff.ncl.ac.uk/d.j.wilkinson/smfsb/2e/index.html">book</a>, includes </small></small></big></big><big><big><small><small>particle Marginal Metropolis-Hastings (chapter 10).</small></small></big></big><br><big><big><small><small><br></small></small></big></big><big><span style="font-weight: bold;"><a href="http://www.cs.ubc.ca/~nando/papers/tutorial_nips_arnaud.pdf"></a></span></big><span style="font-weight: bold;"><br>
+</span><br>
+<br>
+<address><!-- hhmts end --></address>
+
+<!-- Start of StatCounter Code -->
+<script type="text/javascript">
+var sc_project=5096959; 
+var sc_invisible=1; 
+var sc_partition=58; 
+var sc_click_stat=1; 
+var sc_security="83f91068"; 
+</script>
+
+<script type="text/javascript" src="./SMC and Particle Methods Resources_files/counter.js"></script><noscript>&lt;div
+class="statcounter"&gt;&lt;a title="blogspot counter"
+href="http://www.statcounter.com/blogger/" target="_blank"&gt;&lt;img
+class="statcounter" src="http://c.statcounter.com/5096959/0/83f91068/1/"
+alt="blogspot counter" &gt;&lt;/a&gt;&lt;/div&gt;</noscript>
+<!-- End of StatCounter Code -->
+
+
+</body></html>

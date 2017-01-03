@@ -1,0 +1,401 @@
+\documentclass{amsart}
+\usepackage{amsfonts}
+\usepackage{amsmath} 
+\usepackage{enumerate} 
+\usepackage{graphicx}
+\usepackage{color}
+\usepackage[hidelinks]{hyperref}
+
+% ----------------------------------------------------------------
+\vfuzz2pt % Don't report over-full v-boxes if over-edge is small
+\hfuzz2pt % Don't report over-full h-boxes if over-edge is small
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\textwidth=16cm \textheight=22.5cm
+\renewcommand{\baselinestretch}{1.35}
+
+\headsep=10pt \footskip=10pt \overfullrule=0pt \oddsidemargin=11pt
+\evensidemargin=11pt \topmargin=0pt \baselineskip20pt
+\parskip0pt
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%THEOREMS -------------------------------------------------------
+ \newtheorem{thm}{Theorem}[section]
+\newtheorem{cor}[thm]{Corollary}
+\newtheorem{lem}[thm]{Lemma}
+\newtheorem{prop}[thm]{Proposition}
+%\theoremstyle{definition}
+\newtheorem{defn}[thm]{Definition}
+%\theoremstyle{remark}
+\newtheorem{rem}[thm]{Remark}
+%\theoremstyle{example}
+\newtheorem{exm}[thm]{Example}
+\newtheorem{exe}[thm]{Exercise}
+\newtheorem{assu}[thm]{Assumption}
+\newtheorem{algo}[thm]{Algorithm}
+\numberwithin{equation}{section}
+%\theoremstyle{assumption}
+% MATH-----------------------------------------------------------
+\newcommand{\norm}[1]{\left\Vert#1\right\Vert}
+\newcommand{\abs}[1]{\left\vert#1\right\vert}
+\newcommand{\mean}[1]{\mathbb{E}\lbrack #1\rbrack}
+\newcommand{\set}[1]{\left\{#1\right\}}
+\newcommand{\Real}{\mathbb R}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\To}{\longrightarrow}
+\newcommand{\BX}{\mathbf{B}(X)}
+\newcommand{\cA}{\mathcal{A}}
+\newcommand{\cD}{\mathcal{D}}
+\newcommand{\cF}{\mathcal{F}}
+\newcommand{\cG}{\mathcal{G}}
+\newcommand{\cH}{\mathcal{H}}
+\newcommand{\cN}{\mathcal{N}}
+
+\newcommand{\bL}{\mathbb{L}}
+\newcommand{\bP}{\mathbb{P}}
+\newcommand{\bQ}{\mathbb{Q}}
+\newcommand{\of}{(\Omega,\mathcal{F})}
+\newcommand{\ofp}{(\Omega,\mathcal{F}, \mathbb{P})}
+\newcommand{\ofnp}{(\Omega,\mathcal{F}, (\mathcal{F}_n), \mathbb{P})}
+\newcommand{\var}[1]{\mathbb{V}\text{ar}\lbrack #1\rbrack}
+\newcommand{\cov}[1]{\mathbb{C}\text{ov}\lbrack #1\rbrack}
+% -----------------------------------------------------------
+% ----------------------------------------------------------------
+\begin{document}
+% ----------------------------------------------------------------
+\title{Parameters \,Prediction\, on \\
+ Dividend \,Yield\, and \,S\&P\, Real\, Return \,Model}
+ 
+\author{
+\textbf{Mu Niu}
+ and 
+\textbf{Qingyun Ren}}
+\maketitle
+ 
+
+
+\section{Algorithm I}
+Given 2-dimensional model
+$$
+\begin{cases}
+dX_{t}=k(\theta-X_t)dt+\sigma\sqrt{X_{t}}dW_{t}\\
+dR_{t} = \mu X_{t}dt+a\sqrt{X_{t}}dZ_{t}
+\end{cases}
+$$
+where $d\langle Z_{t},W_{t}\rangle=\rho dt$ and 
+$$
+\begin{cases}
+Y_{1,t} = X_{t}e^{ Q_{1 }\times B_{1,n}}\\
+Y_{2,t} = R_{t}+Q_{2}  B_{2,n}
+\end{cases}
+$$
+where $Q = \left\{
+\begin{matrix}
+Q_{1}^2 &  0\\
+0 & Q_{2}^2
+\end{matrix}
+\right\}
+$ and $B = \left\{
+\begin{matrix}
+B_{1,n}\\
+B_{2,n}
+\end{matrix}
+\right\}
+$, $B_{1,n}$, $B_{2,n}$ are independent Brownian motions.
+
+By Ito formula, we formed the dynamic of $\ln(X_{t})$.
+$$
+d\ln({X_{t}})=(\frac{k\theta}{X_{t}}-k-\frac{1}{2}\sigma^{2})dt+\frac{\sigma}{\sqrt{X_{t}}}dW_{t}
+$$
+Then SDE should be 
+$$
+\ln{X_{t+h}}=\ln{X_{t}}+\int_{t}^{t+h}(\frac{k\theta}{X_{s}}-k-\frac{1}{2}\sigma^{2})ds+\int_{t}^{t+h}\frac{\sigma}{\sqrt{X_{s}}}dW_{s}
+$$
+After discretising the SDE by using Forward Euler, formulas of $X_{n}$ and $R_{n}$ are formed below. 
+%
+$$
+\begin{cases}
+X_{n} = X_{n-1}e^{\frac{2k\theta-2kX_{n-1}-\sigma^{2}}{2X_{n-1}}}e^{\frac{\sigma}{\sqrt{X_{n-1}}}\Delta W_{1,n}}\\
+R_{n} = \mu X_{n-1}+a\sqrt{X_{n-1}}(\rho\Delta W_{1,n}+\sqrt{1-\rho^2}\Delta W_{2,n})
+\end{cases}
+$$
+
+We take $V_{n}=\ln(X_{n})$   and    the model equation reads:
+%
+$$
+x_{n}= \binom{V_{n}}{R_{n} }= 
+\binom{
+ V_{n-1}+\frac{2k\theta-\sigma^{2}}{2e^{V_{n-1}}}-k+\frac{\sigma}{\sqrt{e^{V_{n-1}}}}\Delta W_{1,n}} {  \mu e^{V_{n-1}}+a\sqrt{e^{V_{n-1}}}(\rho\Delta W_{1,n}+\sqrt{1-\rho^2}\Delta W_{2,n})} 
+$$
+where $\Delta W_{i,n}=W_{i,n+1}-W_{i,n}$, $i=1,2$ and $\Delta W_{1,n},\Delta W_{2,n}$are independent. 
+The observation equation reads 
+$$
+y_{n}= \binom{Y_{1,n} }{Y_{2,n} }=
+\binom{  V_{n}+ {Q_{1}}B_{1,n}}{
+  R_{n}+ {Q_{2}}B_{2,n}}.
+$$
+
+
+We are using maximum loglikelihood to estimate the paramaters. Let $\mathcal F_{n}$ denote all the measurements available until and including time $t_{n}$. Then we can write the likelihood function for the set of observations $Y = {y_{1},y_{2},\dots, y_{N}}$ as 
+$$
+L(Y) = p(y_{1})\prod_{i=1}^{N}p(y_{i}|\mathcal F_{i-1})
+$$
+We let $\nu_{n}$ represents information which could not have been derived from data up to time $t_{n-1}$ and are called $\textit{innovations}$. According to previous equations, $\nu_{n}$ is formed below.
+
+\begin{align}
+\nu_{n}&=y_{n}-E(y_{n}|\mathcal F_{n-1})
+=y_{n}-E(x_{n}|\mathcal F_{n-1})  \notag \\
+&=y_{n}-\left\{
+\begin{matrix}
+   V_{n-1}+\frac{2k\theta-\sigma^{2}}{2e^{V_{n-1}}}-k\\
+   \mu e^{V_{n-1}}
+\end{matrix}
+\right\}
+\end{align}
+ 
+
+
+Then the covariance matrix of $\nu_{n}$ can be calculated by
+%
+%
+\begin{align}
+\Sigma_{n}&=\textup{var}(\nu_{n}|\mathcal F_{n-1})
+=\textup{cov}(x_{n}|\mathcal F_{n-1})+Q^{1/2}(Q^{1/2})^{\top}\notag\\
+&=\left\{
+\begin{matrix}
+\textup{var}(V_{n}|\mathcal F_{n-1}) & \textup{var}(V_{n},R_{n}|\mathcal F_{n-1})  \notag \\
+\textup{cov}(V_{n},R_{n}|\mathcal F_{n-1}) & \textup{cov}(R_{n}|\mathcal F_{n-1})
+\end{matrix}
+\right\}+Q^{1/2}(Q^{1/2})^{\top}\notag\\
+&=\left\{
+\begin{matrix}
+\frac{\sigma^{2}}{e^{V_{n-1}}} & a\sigma \rho  \notag\\
+a\sigma \rho & a^{2}e^{V_{n-1}}
+\end{matrix}
+\right\}+Q^{1/2}(Q^{1/2})^{\top}\\
+&=\left\{
+\begin{matrix}
+\frac{\sigma^{2}}{e^{V_{n-1}}}+Q_{1}^2 & a\sigma \rho\\
+a\sigma \rho & a^{2}e^{V_{n-1}}+Q_{2}^2
+\end{matrix}
+\right \}
+\end{align}
+ 
+
+
+It is usually simpler to work with logarithm of likelihood, which is given by 
+$$
+\log L(Y) = \sum_{i=1}^{N}\log p(y_{i}|\mathcal F_{i-1})=-\frac{1}{2}\sum_{i=1}^{N}(\log|\Sigma_{i}|+\nu_{i}^{T} \Sigma_{i}^{-1}\nu_{i})
+$$
+when the constant terms are ignored. The above function can then be maximized to find the parameter vectors $k$,$\theta$,$\sigma$,$\mu$, $a$, $\rho$ and matrices $Q$ using an off-the-shelf nonlinear solver such as $\textit{fminsearch}$ in MATLAB. 
+
+\subsection{Numerical results}
+Finally we got our result in the following table:
+
+\begin{table}[!ht]
+\begin{tabular}{cccccccc} \hline 
+ $Q_{1}$ & $Q_{2}$ & $k$ & $\theta$ & $\sigma$ & $\mu$ & $a$ & $\rho$ 
+ \\ \hline 
+  2.0714 & 2.0451 &0.3003 & 0.1907 & 0.9197 & 1.6309 & 0.0310 &-0.8857 \\\hline 
+\end{tabular}
+\end{table}
+
+\section{Algorithm II}
+Given 2-dimensional model
+$$
+\begin{cases}
+dX_{t}=k(\theta-X_t)dt+\sigma\sqrt{X_{t}}dW_{t}\\
+dR_{t} = \mu X_{t}dt+a\sqrt{X_{t}}dZ_{t}
+\end{cases}
+$$
+where $d\langle Z_{t},W_{t}\rangle=\rho dt$ and 
+$$
+\begin{cases}
+Y_{1,t} = X_{t}+Q_{1} B_{1,n}\\
+Y_{2,t} = R_{t}+Q_{2}  B_{2,n}
+\end{cases}
+$$
+where $Q = \left\{
+\begin{matrix}
+Q_{1}^2 &  0\\
+0 & Q_{2}^2
+\end{matrix}
+\right\}
+$ and $B = \left\{
+\begin{matrix}
+B_{1,n}\\
+B_{2,n}
+\end{matrix}
+\right\}
+$, $B_{1,n}$, $B_{2,n}$ are independent Brownian motions.
+Rather than using Forward Euler, we use Backward Euler to solve SDE:
+$$
+\begin{cases}
+X_{t+h}=X_{t}+\int_{t}^{t+h}k(\theta-X_{s})ds+\int_{t}^{t+h}\sigma\sqrt{X_{s}}dW_{s}\\ R_{t+h}=R_{t}+\int_{t}^{t+h}\mu X_{s}ds+\int_{t}^{t+h}a\sqrt{X_s}dZ_{s} 
+\end{cases}
+$$
+We have 
+$$
+x_{n}= \binom{X_{n}}{R_{n} }= 
+\binom{
+	\frac{1}{1+k}X_{n-1}+\frac{k\theta}{1+k}+\frac{\sigma}{1+k}\sqrt{X_{n-1}}\Delta W_{1,n}}{  \mu X_{n}+a\sqrt{X_{n-1}}(\rho\Delta W_{1,n}+\sqrt{1-\rho^2}\Delta W_{2,n})} 
+$$
+where $\Delta W_{i,n}=W_{i,n+1}-W_{i,n}$, $i=1,2$ and $\Delta W_{1,n},\Delta W_{2,n}$are independent. 
+The observation equation reads 
+$$
+y_{n}= \binom{Y_{1,n} }{Y_{2,n} }=
+\binom{  X_{n}+ {Q_{1}}B_{1,n}}{
+	R_{n}+ {Q_{2}}B_{2,n}}.
+$$
+
+We are using maximum loglikelihood to estimate the paramaters. Let $\mathcal F_{n}$ denote all the measurements available until and including time $t_{n}$. Then we can write the likelihood function for the set of observations $Y = {y_{1},y_{2},\dots, y_{N}}$ as 
+$$
+L(Y) = p(y_{1})\prod_{i=1}^{N}p(y_{i}|\mathcal F_{i-1})
+$$
+We let $\nu_{n}$ represents information which could not have been derived from data up to time $t_{n-1}$ and are called $\textit{innovations}$. According to previous equations, $\nu_{n}$ is formed below.
+
+\begin{align}
+\nu_{n}&=y_{n}-E(y_{n}|\mathcal F_{n-1})
+=y_{n}-E(x_{n}|\mathcal F_{n-1})  \notag \\
+&=y_{n}-\left\{
+\begin{matrix}
+\frac{1}{1+k}X_{n-1}+\frac{k\theta}{1+k}\\
+\mu(\frac{1}{1+k}X_{n-1}+\frac{k\theta}{1+k})
+\end{matrix}
+\right\}
+\end{align}
+
+
+
+Then the covariance matrix of $\nu_{n}$ can be calculated by
+%
+%
+\begin{align}
+\Sigma_{n}&=\textup{var}(\nu_{n}|\mathcal F_{n-1})
+=\textup{cov}(x_{n}|\mathcal F_{n-1})+Q^{1/2}(Q^{1/2})^{\top}\notag\\
+&=
+%\left\{
+%\begin{matrix}
+%\textup{var}(V_{n}|\mathcal F_{n-1}) & %\textup{var}(V_{n},R_{n}|\mathcal F_{n-1})  \notag \\
+%\textup{cov}(V_{n},R_{n}|\mathcal F_{n-1}) & %\textup{cov}(R_{n}|\mathcal F_{n-1})
+%\end{matrix}
+%\right\}+Q^{1/2}(Q^{1/2})^{\top}\notag\\
+%&=\left\{
+%\begin{matrix}
+%\frac{\sigma^{2}}{e^{V_{n-1}}} & a\sigma \rho  \notag\\
+%a\sigma \rho & a^{2}e^{V_{n-1}}
+%\end{matrix}
+%\right\}+Q^{1/2}(Q^{1/2})^{\top}\\
+%&=\left\{
+%\begin{matrix}
+%\frac{\sigma^{2}}{e^{V_{n-1}}}+Q_{1}^2 & a\sigma \rho\\
+%a\sigma \rho & a^{2}e^{V_{n-1}}+Q_{2}^2
+%\end{matrix}
+%\right \}
+\end{align}
+
+
+
+It is usually simpler to work with logarithm of likelihood, which is given by 
+$$
+\log L(Y) = \sum_{i=1}^{N}\log p(y_{i}|\mathcal F_{i-1})=-\frac{1}{2}\sum_{i=1}^{N}(\log|\Sigma_{i}|+\nu_{i}^{T} \Sigma_{i}^{-1}\nu_{i})
+$$
+when the constant terms are ignored. The above function can then be maximized to find the parameter vectors $k$,$\theta$,$\sigma$,$\mu$, $a$, $\rho$ and matrices $Q$ using an off-the-shelf nonlinear solver such as $\textit{fminsearch}$ in MATLAB. 
+
+
+\section{Algorithm III}
+In this section, the only difference is that for $X_n$, the scheme is positivity-preserving. All the computation will be similar to what we had in the section above. 
+
+
+Given 2-dimensional model
+$$
+\begin{cases}
+dX_{t}=k(\theta-X_t)dt+\sigma\sqrt{X_{t}}dW_{t}\\
+dR_{t} = \mu X_{t}dt+a\sqrt{X_{t}}dZ_{t}
+\end{cases}
+$$
+where $d\langle Z_{t},W_{t}\rangle=\rho dt$ and 
+\begin{equation}
+ \binom{Y_{1,t}}{Y_{2,t}} =   \binom{X_{t}}{R_{t}} + \begin{pmatrix}
+   Q_{1}   & 0 \\
+   0   & Q_{2} 
+ \end{pmatrix} \binom{B_{1,t}}{B_{2,t}} 
+\end{equation}
+Here  $B_{1,t}$, $B_{2,t}$ are independent Brownian motions.
+ 
+
+$$
+\begin{cases}
+X_{n} = \abs{X_{n-1}+ k(\theta-X_{n-1}) +\sigma \sqrt{X_{n-1}}\Delta W_{1,n}} \text{( positivity preserving)}\\
+R_{n} = \mu X_{n-1}+a\sqrt{X_{n-1}}(\rho\Delta W_{1,n}+\sqrt{1-\rho^2}\Delta W_{2,n})
+\end{cases}
+$$
+
+  
+
+We are using maximum loglikelihood to estimate the parameters. Let $\mathcal F_{n}$ denote all the measurements available until and including time $t_{n}$. Then we can write the likelihood function for the set of observations $Y =\{y_{1},y_{2},\dots, y_{N}\}$ as 
+$$
+L(Y) = p(y_{1})\prod_{i=1}^{N}p(y_{i}|\mathcal F_{i-1}).
+$$
+We let $\nu_{n}$ represents information which could not have been derived from data up to time $t_{n-1}$ and are called $\textit{innovations}$. According to previous equations, $\nu_{n}$ is calculated below.
+%
+\begin{align}
+\nu_{n}&=y_{n}-E(y_{n}|\mathcal F_{n-1}) 
+ =y_{n}-E(x_{n}|\mathcal F_{n-1})  
+ =y_{n}- ?? 
+\end{align}
+ 
+
+
+Then the covariance matrix of $\nu_{n}$ can be calculated by
+%
+\begin{align}
+\Sigma_{n}&=var(\nu_{n}|\mathcal F_{n-1}) 
+ =cov(x_{n}|\mathcal F_{n-1})+QQ^{T}    \\
+&=\left\{
+\begin{matrix}
+var(V_{n}|\mathcal F_{n-1}) & cov(V_{n},R_{n}|\mathcal F_{n-1})\\
+cov(V_{n},R_{n}|\mathcal F_{n-1}) & var(R_{n}|\mathcal F_{n-1})
+\end{matrix}
+\right\}+QQ^{T} \notag \\
+&= ??+QQ^{T} \notag
+\end{align}
+ 
+
+
+It is usually simpler to work with logarithm of likelihood, which is given by 
+$$
+\ln L(Y) = \sum_{i=1}^{N}\ln p(y_{i}|\mathcal F_{i-1})=-\frac{1}{2}\sum_{i=1}^{N}(\ln|\Sigma_{i}|+\nu_{i}^{T} \Sigma_{i}^{-1}\nu_{i})
+$$
+when the constant terms are ignored. The above function can then be maximized to find the parameter vectors $k$,$\theta$,$\sigma$,$\mu$, $a$, $\rho$ and matrices $Q$ using an off-the-shelf nonlinear solver such as $\textit{fminsearch}$ in MATLAB. 
+
+Finally we got our result in the following table:
+
+\begin{table}[!ht]
+\begin{tabular}{cccccccc} \hline 
+ $Q_{1}$ & $Q_{2}$ & $k$ & $\theta$ & $\sigma$ & $\mu$ & $a$ & $\rho$ 
+ \\ \hline 
+  &   &  &  &   &   &   &  \\\hline 
+\end{tabular}
+\end{table}
+
+\appendix
+\section{Inverse of matrices}
+\begin{thm}
+ Suppose ${\displaystyle A}$ is an invertible square matrix and $ {\displaystyle u}   {\displaystyle v}$ are column vectors. Suppose furthermore that $ \displaystyle 1+v^{T}A^{-1}u\neq 0    $. Then the Sherman–Morrison formula states that
+\[ {\displaystyle (A+uv^{T})^{-1}=A^{-1}-{A^{-1}uv^{T}A^{-1} \over 1+v^{T}A^{-1}u}.}  \] 
+\end{thm}
+
+\begin{thm}
+Assume that we have some $n\times n$ matrix, A. U is a  $n\times k$  matrix and V is a  $k\times n$  matrix, B = A + UV. Then,
+%
+ \[{\displaystyle {B^{-1}}={A^{-1}}-{A^{-1}}U{\left({{I_{k}}+V{A^{-1}}U}\right)^{-1}}V{A^{-1}}} .\]
+\end{thm}
+
+\begin{thm}
+ The Woodbury matrix identity 
+ %
+   \[ \displaystyle \left(A+UCV\right)^{-1}=A^{-1}-A^{-1}U\left(C^{-1}+VA^{-1}U\right)^{-1}VA^{-1},   \]
+\end{thm}
+
+
+\end{document}
